@@ -1,12 +1,10 @@
-import { DialogContent } from './ui/dialog'
+import { useQuiz } from '@/hooks/use-quiz'
 
 import { Question } from './question'
 import { Welcome } from './welcome'
 
 export function QuizContent() {
-  const quizStarted = false
+  const { quizStart } = useQuiz()
 
-  return (
-    <DialogContent>{quizStarted ? <Question /> : <Welcome />}</DialogContent>
-  )
+  return quizStart ? <Question /> : <Welcome />
 }
