@@ -1,12 +1,12 @@
 import { Header } from './components/header'
-import { QuizWrapper } from './components/quiz-wrapper'
+import { Quiz } from './components/quiz'
 import { AppProvider } from './hooks'
 
 export function App() {
   return (
     <AppProvider>
       <Header />
-      <QuizWrapper />
+      <Quiz />
     </AppProvider>
   )
 }

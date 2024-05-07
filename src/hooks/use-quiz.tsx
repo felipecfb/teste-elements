@@ -8,13 +8,15 @@ interface QuizProviderProps {
 
 const STAGES = ['INITIAL', 'STARTED', 'FINISHED']
 
+type QuizActionType =
+  | 'START_QUIZ'
+  | 'REORDER_QUESTIONS'
+  | 'NEXT_QUESTION'
+  | 'BACK_TO_INITIAL'
+  | 'PREVIOUS_QUESTION'
+
 interface QuizAction {
-  type:
-    | 'START_QUIZ'
-    | 'REORDER_QUESTIONS'
-    | 'NEXT_QUESTION'
-    | 'BACK_TO_INITIAL'
-    | 'PREVIOUS_QUESTION'
+  type: QuizActionType
 }
 
 const initialState = {
@@ -30,6 +32,8 @@ interface QuizContextProps {
   backToInitial: () => void
   nextQuestion: () => void
   previousQuestion: () => void
+  isAtFirstQuestion: boolean
+  isAtLastQuestion: boolean
 }
 
 const quizReducer = (state: typeof initialState, action: QuizAction) => {
@@ -105,6 +109,9 @@ function QuizProvider({ children }: QuizProviderProps) {
     dispatch({ type: 'PREVIOUS_QUESTION' })
   }
 
+  const isAtFirstQuestion = state.currentQuestion === 0
+  const isAtLastQuestion = state.currentQuestion === state.questions.length - 1
+
   return (
     <QuizContext.Provider
       value={{
@@ -114,6 +121,8 @@ function QuizProvider({ children }: QuizProviderProps) {
         backToInitial,
         nextQuestion,
         previousQuestion,
+        isAtFirstQuestion,
+        isAtLastQuestion,
       }}
     >
       {children}
@@ -123,6 +132,10 @@ function QuizProvider({ children }: QuizProviderProps) {
 
 function useQuiz() {
   const context = useContext(QuizContext)
+
+  if (!context) {
+    throw new Error('useQuiz must be used within an QuizProvider')
+  }
 
   return context
 }
