@@ -1,3 +1,54 @@
 {
-  "ranking": []
+  "ranking": [
+    {
+      "id": 1,
+      "name": "Felipe Bastos",
+      "score": 2
+    },
+    {
+      "id": 2,
+      "name": "Maria Silva",
+      "score": 5
+    },
+    {
+      "id": 3,
+      "name": "Carlos Oliveira",
+      "score": 3
+    },
+    {
+      "id": 4,
+      "name": "Ana Santos",
+      "score": 3
+    },
+    {
+      "id": 5,
+      "name": "Lucas Pereira",
+      "score": 4
+    },
+    {
+      "id": 6,
+      "name": "Juliana Costa",
+      "score": 5
+    },
+    {
+      "id": 7,
+      "name": "Rafaela Souza",
+      "score": 2
+    },
+    {
+      "id": 8,
+      "name": "Gustavo Lima",
+      "score": 1
+    },
+    {
+      "id": 9,
+      "name": "Isabela Santos",
+      "score": 5
+    },
+    {
+      "id": 10,
+      "name": "Pedro Oliveira",
+      "score": 1
+    }
+  ]
 }

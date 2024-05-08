@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from './ui/dialog'
 import { ProfileForm } from './profile-form'
+import { Ranking } from './ranking'
 
 export function Welcome() {
   return (
@@ -26,6 +27,8 @@ export function Welcome() {
       </DialogHeader>
       <DialogFooter className="sm:flex-col gap-4">
         <ProfileForm />
+
+        <Ranking />
       </DialogFooter>
     </DialogContent>
   )

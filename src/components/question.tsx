@@ -16,13 +16,10 @@ export function Question() {
   return (
     <>
       <DialogContent key={currentQuestion.question}>
-        <DialogHeader className="flex-row items-center">
+        <DialogHeader>
           <p className="text-2xl text-zinc-900 font-medium">
             Questão 0{quizState.currentQuestion + 1}
           </p>
-          <span className="text-lg text-zinc-600">
-            /0{quizState.questions.length}
-          </span>
         </DialogHeader>
         <DialogDescription className="text-lg text-zinc-900 font-medium">
           {currentQuestion.question}
