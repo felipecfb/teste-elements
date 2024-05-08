@@ -11,17 +11,17 @@ import {
 import { useQuery } from '@tanstack/react-query'
 
 export function Ranking() {
-  const { data } = useQuery({
+  const { data: rankingOrderWithScore } = useQuery({
     queryKey: ['quizRanking'],
     queryFn: getRankingWithScore,
   })
 
-  const dataFormattedWithThreeFirsts = data?.slice(0, 3)
+  const rankingFormattedWithThreeFirsts = rankingOrderWithScore?.slice(0, 3)
 
   return (
     <div>
       <Table>
-        <TableCaption>Primeiros colocados no ranking</TableCaption>
+        <TableCaption>Maiores pontuações</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[20px]">Posição</TableHead>
@@ -30,8 +30,9 @@ export function Ranking() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {dataFormattedWithThreeFirsts &&
-            dataFormattedWithThreeFirsts.map((item, index) => (
+          {rankingFormattedWithThreeFirsts &&
+          rankingFormattedWithThreeFirsts.length > 0 ? (
+            rankingFormattedWithThreeFirsts!.map((item, index) => (
               <TableRow key={index}>
                 <TableCell className="font-medium w-[20px] text-center">
                   {index + 1}
@@ -41,7 +42,14 @@ export function Ranking() {
                   {item.score}
                 </TableCell>
               </TableRow>
-            ))}
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={3} className="text-center">
+                Jogue para aparecer no ranking!
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </div>
