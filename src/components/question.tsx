@@ -3,6 +3,7 @@ import { RadioGroup } from './ui/radio-group'
 import { Answer } from './answer'
 import { useQuiz } from '@/hooks/use-quiz'
 import { QuestionFooter } from './question-footer'
+import { formatSecondsToMinute } from '@/utils/format-seconds-to-minute'
 
 export function Question() {
   const { quizState, checkAnswer } = useQuiz()
@@ -18,11 +19,14 @@ export function Question() {
       <DialogContent key={currentQuestion.question}>
         <DialogHeader className="flex flex-row items-center justify-between">
           <p className="text-2xl text-zinc-900 font-medium">
-            Questão 0{quizState.currentQuestion + 1}
+            Questão{' '}
+            {quizState.currentQuestion < 9
+              ? `0${quizState.currentQuestion + 1}`
+              : quizState.currentQuestion + 1}
           </p>
 
           <p className="text-lg text-zinc-900 font-medium">
-            0:{quizState.timer < 10 ? `0${quizState.timer}` : quizState.timer}
+            {formatSecondsToMinute(quizState.timer)}
           </p>
         </DialogHeader>
         <DialogDescription className="text-lg text-zinc-900 font-medium">
