@@ -8,6 +8,7 @@ export function QuestionFooter() {
     previousQuestion,
     isAtFirstQuestion,
     isAtLastQuestion,
+    finishQuiz,
   } = useQuiz()
 
   function handleBackToInitial() {
@@ -22,6 +23,10 @@ export function QuestionFooter() {
     previousQuestion()
   }
 
+  function handleFinishQuiz() {
+    finishQuiz()
+  }
+
   return (
     <div className="w-full flex items-center gap-2 justify-end">
       <button
@@ -33,7 +38,7 @@ export function QuestionFooter() {
         {isAtFirstQuestion ? 'Cancelar' : 'Voltar'}
       </button>
       <button
-        onClick={isAtLastQuestion ? handleBackToInitial : handleNextQuestion}
+        onClick={isAtLastQuestion ? handleFinishQuiz : handleNextQuestion}
         className={`w-max font-medium py-2 px-4 text-white rounded-sm
           ${!quizState.answerSelected && 'cursor-not-allowed opacity-50'}
           ${

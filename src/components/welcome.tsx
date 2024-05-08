@@ -1,4 +1,5 @@
 import { SquarePen } from 'lucide-react'
+
 import {
   DialogContent,
   DialogDescription,
@@ -6,15 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from './ui/dialog'
-import { useQuiz } from '@/hooks/use-quiz'
+import { ProfileForm } from './profile-form'
 
 export function Welcome() {
-  const { startQuiz } = useQuiz()
-
-  function handleStartQuiz() {
-    startQuiz()
-  }
-
   return (
     <DialogContent>
       <DialogHeader className="space-y-6">
@@ -23,18 +18,14 @@ export function Welcome() {
           Quiz - Elements
         </DialogTitle>
         <DialogDescription className="text-center text-base">
-          Teste seus conhecimentos sobre a nossa marca e ganhe prêmios.
+          Teste seus conhecimentos sobre cadeira e ganhe prêmios incríveis pela
+          participação!
           <br />
           Vamos lá?
         </DialogDescription>
       </DialogHeader>
-      <DialogFooter>
-        <button
-          className="font-medium w-full py-2 text-white bg-purple-800 rounded-lg hover:bg-purple-600"
-          onClick={handleStartQuiz}
-        >
-          Começar
-        </button>
+      <DialogFooter className="sm:flex-col gap-4">
+        <ProfileForm />
       </DialogFooter>
     </DialogContent>
   )

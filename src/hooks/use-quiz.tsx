@@ -1,6 +1,9 @@
-import { data } from '@/data'
-import { ReorderQuestions } from '@/utils/reorder-questions'
 import { ReactNode, createContext, useContext, useReducer } from 'react'
+
+import { ReorderQuestions } from '@/utils/reorder-questions'
+import { sendDataToFakeDB } from '@/utils/send-data-to-fake-db'
+
+import { data } from '@/data'
 
 interface QuizProviderProps {
   children: ReactNode
@@ -15,6 +18,7 @@ type QuizActionType =
   | 'BACK_TO_INITIAL'
   | 'PREVIOUS_QUESTION'
   | 'CHECK_ANSWER'
+  | 'FINISH_QUIZ'
 
 interface QuizAction {
   type: QuizActionType
@@ -27,10 +31,10 @@ interface QuizAction {
 const initialState = {
   gameStage: STAGES[0],
   questions: data,
+  name: '',
   currentQuestion: 0,
   score: 0,
   answerSelected: false,
-  selectedAnswer: '',
 }
 
 interface QuizContextProps {
@@ -43,6 +47,7 @@ interface QuizContextProps {
   isAtFirstQuestion: boolean
   isAtLastQuestion: boolean
   checkAnswer: (option: string) => void
+  finishQuiz: () => void
 }
 
 const quizReducer = (state: typeof initialState, action: QuizAction) => {
@@ -64,12 +69,14 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
         return {
           ...state,
           gameStage: STAGES[2],
+          answerSelected: false,
         }
       }
 
       return {
         ...state,
         currentQuestion: state.currentQuestion + 1,
+        answerSelected: false,
       }
 
     case 'PREVIOUS_QUESTION':
@@ -83,17 +90,31 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
       }
 
     case 'BACK_TO_INITIAL':
-      return {
-        ...state,
-        gameStage: STAGES[0],
-        currentQuestion: 0,
+      return initialState
+
+    case 'CHECK_ANSWER': {
+      if (state.answerSelected) {
+        return state
       }
 
-    case 'CHECK_ANSWER':
+      const { answer, option } = action.payload!
+      let correctAnswer = 0
+
+      if (answer === option) {
+        correctAnswer = 1
+      }
+
       return {
         ...state,
+        score: state.score + correctAnswer,
         answerSelected: true,
-        selectedAnswer: action.payload!.option,
+      }
+    }
+
+    case 'FINISH_QUIZ':
+      return {
+        ...initialState,
+        gameStage: STAGES[2],
       }
 
     default:
@@ -132,10 +153,12 @@ function QuizProvider({ children }: QuizProviderProps) {
       type: 'CHECK_ANSWER',
       payload: { answer: currentQuestion.answer, option },
     })
+  }
 
-    if (currentQuestion.answer === option) {
-      state.score += 1
-    }
+  async function finishQuiz() {
+    await sendDataToFakeDB({ name: state.name, score: state.score })
+
+    dispatch({ type: 'FINISH_QUIZ' })
   }
 
   const isAtFirstQuestion = state.currentQuestion === 0
@@ -153,6 +176,7 @@ function QuizProvider({ children }: QuizProviderProps) {
         isAtFirstQuestion,
         isAtLastQuestion,
         checkAnswer,
+        finishQuiz,
       }}
     >
       {children}

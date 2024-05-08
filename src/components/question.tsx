@@ -10,8 +10,6 @@ export function Question() {
   const currentQuestion = quizState.questions[quizState.currentQuestion]
 
   function handleSelectAnswer(option: string) {
-    quizState.answerSelected = true
-
     checkAnswer(option)
   }
 
@@ -36,7 +34,6 @@ export function Question() {
                 key={option}
                 option={option}
                 onClick={(option) => handleSelectAnswer(option)}
-                checked={quizState.selectedAnswer === option}
               />
             ))}
           </RadioGroup>
