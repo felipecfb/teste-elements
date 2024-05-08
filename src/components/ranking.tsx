@@ -21,7 +21,7 @@ export function Ranking() {
   return (
     <div>
       <Table>
-        <TableCaption>Ranking do Quiz</TableCaption>
+        <TableCaption>Primeiros colocados no ranking</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[20px]">Posição</TableHead>

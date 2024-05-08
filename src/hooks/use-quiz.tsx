@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useReducer,
+  useState,
 } from 'react'
 
 import { ReorderQuestions } from '@/utils/reorder-questions'
@@ -26,6 +27,7 @@ type QuizActionType =
   | 'CHECK_ANSWER'
   | 'FINISH_QUIZ'
   | 'UPDATE_TIMER'
+  | 'SET_FINISHED'
 
 interface QuizAction {
   type: QuizActionType
@@ -42,7 +44,7 @@ const initialState = {
   currentQuestion: 0,
   score: 0,
   answerSelected: false,
-  timer: 10,
+  timer: 5,
 }
 
 interface QuizContextProps {
@@ -127,8 +129,14 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
 
     case 'FINISH_QUIZ':
       return {
-        ...initialState,
+        ...state,
         gameStage: STAGES[2],
+      }
+
+    case 'SET_FINISHED':
+      return {
+        ...state,
+        finished: true,
       }
 
     default:
@@ -140,20 +148,31 @@ const QuizContext = createContext({} as QuizContextProps)
 
 function QuizProvider({ children }: QuizProviderProps) {
   const [state, dispatch] = useReducer(quizReducer, initialState)
+  const [quizFinished, setQuizFinished] = useState<boolean>(false)
 
   useEffect(() => {
+    let timer: NodeJS.Timeout | undefined
+
     if (state.gameStage === STAGES[1]) {
-      const timer = setInterval(() => {
+      timer = setInterval(() => {
         dispatch({ type: 'UPDATE_TIMER' })
       }, 1000)
-
-      if (state.timer === 0) {
-        finishQuiz()
-      }
-
-      return () => clearInterval(timer)
     }
-  }, [finishQuiz, state.gameStage, state.timer])
+
+    if (state.timer === 0) {
+      clearInterval(timer)
+
+      if (!quizFinished) {
+        dispatch({ type: 'SET_FINISHED' })
+        finishQuiz()
+        setQuizFinished(true)
+      }
+    }
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [quizFinished, state.gameStage, state.timer])
 
   const quizStart = state.gameStage === STAGES[1]
 
@@ -163,6 +182,8 @@ function QuizProvider({ children }: QuizProviderProps) {
   }
 
   function backToInitial() {
+    setQuizFinished(false)
+
     dispatch({ type: 'BACK_TO_INITIAL' })
   }
 

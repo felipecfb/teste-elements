@@ -1,6 +1,7 @@
 import { api } from '@/lib/axios'
 
 export type getRakingWithScoreResponse = {
+  id: number
   name: string
   score: number
 }[]

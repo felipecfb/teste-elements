@@ -3,6 +3,7 @@ import { Header } from './components/header'
 import { Quiz } from './components/quiz'
 import { AppProvider } from './hooks'
 import { queryClient } from './lib/react-query'
+import { Toaster } from './components/ui/toaster'
 
 export function App() {
   return (
@@ -10,6 +11,7 @@ export function App() {
       <AppProvider>
         <Header />
         <Quiz />
+        <Toaster />
       </AppProvider>
     </QueryClientProvider>
   )
