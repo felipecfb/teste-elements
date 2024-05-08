@@ -2,6 +2,7 @@ import { useQuiz } from '@/hooks/use-quiz'
 
 export function QuestionFooter() {
   const {
+    quizState,
     backToInitial,
     nextQuestion,
     previousQuestion,
@@ -33,12 +34,14 @@ export function QuestionFooter() {
       </button>
       <button
         onClick={isAtLastQuestion ? handleBackToInitial : handleNextQuestion}
-        className={`w-max font-medium py-2 px-4 text-white rounded-sm ${
-          isAtLastQuestion
-            ? 'bg-green-600 hover:bg-green-400'
-            : 'bg-purple-600 hover:bg-purple-400'
-        }`}
-        disabled={true}
+        className={`w-max font-medium py-2 px-4 text-white rounded-sm
+          ${!quizState.answerSelected && 'cursor-not-allowed opacity-50'}
+          ${
+            isAtLastQuestion
+              ? 'bg-green-600 hover:bg-green-400'
+              : 'bg-purple-600 hover:bg-purple-400'
+          }`}
+        disabled={!quizState.answerSelected}
       >
         {isAtLastQuestion ? 'Finalizar' : 'Próxima'}
       </button>

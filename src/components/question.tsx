@@ -5,9 +5,15 @@ import { useQuiz } from '@/hooks/use-quiz'
 import { QuestionFooter } from './question-footer'
 
 export function Question() {
-  const { quizState } = useQuiz()
+  const { quizState, checkAnswer } = useQuiz()
 
   const currentQuestion = quizState.questions[quizState.currentQuestion]
+
+  function handleSelectAnswer(option: string) {
+    quizState.answerSelected = true
+
+    checkAnswer(option)
+  }
 
   return (
     <>
@@ -26,7 +32,12 @@ export function Question() {
         <div className="flex flex-col items-start gap-4">
           <RadioGroup className="w-full">
             {currentQuestion.options.map((option) => (
-              <Answer key={option} option={option} />
+              <Answer
+                key={option}
+                option={option}
+                onClick={(option) => handleSelectAnswer(option)}
+                checked={quizState.selectedAnswer === option}
+              />
             ))}
           </RadioGroup>
 

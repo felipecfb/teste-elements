@@ -14,15 +14,23 @@ type QuizActionType =
   | 'NEXT_QUESTION'
   | 'BACK_TO_INITIAL'
   | 'PREVIOUS_QUESTION'
+  | 'CHECK_ANSWER'
 
 interface QuizAction {
   type: QuizActionType
+  payload?: {
+    answer: string
+    option: string
+  }
 }
 
 const initialState = {
   gameStage: STAGES[0],
   questions: data,
   currentQuestion: 0,
+  score: 0,
+  answerSelected: false,
+  selectedAnswer: '',
 }
 
 interface QuizContextProps {
@@ -34,6 +42,7 @@ interface QuizContextProps {
   previousQuestion: () => void
   isAtFirstQuestion: boolean
   isAtLastQuestion: boolean
+  checkAnswer: (option: string) => void
 }
 
 const quizReducer = (state: typeof initialState, action: QuizAction) => {
@@ -80,6 +89,13 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
         currentQuestion: 0,
       }
 
+    case 'CHECK_ANSWER':
+      return {
+        ...state,
+        answerSelected: true,
+        selectedAnswer: action.payload!.option,
+      }
+
     default:
       return state
   }
@@ -109,6 +125,19 @@ function QuizProvider({ children }: QuizProviderProps) {
     dispatch({ type: 'PREVIOUS_QUESTION' })
   }
 
+  function checkAnswer(option: string) {
+    const currentQuestion = state.questions[state.currentQuestion]
+
+    dispatch({
+      type: 'CHECK_ANSWER',
+      payload: { answer: currentQuestion.answer, option },
+    })
+
+    if (currentQuestion.answer === option) {
+      state.score += 1
+    }
+  }
+
   const isAtFirstQuestion = state.currentQuestion === 0
   const isAtLastQuestion = state.currentQuestion === state.questions.length - 1
 
@@ -123,6 +152,7 @@ function QuizProvider({ children }: QuizProviderProps) {
         previousQuestion,
         isAtFirstQuestion,
         isAtLastQuestion,
+        checkAnswer,
       }}
     >
       {children}
