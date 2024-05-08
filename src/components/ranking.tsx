@@ -11,10 +11,12 @@ import {
 import { useQuery } from '@tanstack/react-query'
 
 export function Ranking() {
-  const { data: quizRanking } = useQuery({
+  const { data } = useQuery({
     queryKey: ['quizRanking'],
     queryFn: getRankingWithScore,
   })
+
+  const dataFormattedWithThreeFirsts = data?.slice(0, 3)
 
   return (
     <div>
@@ -28,8 +30,8 @@ export function Ranking() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {quizRanking &&
-            quizRanking.map((item, index) => (
+          {dataFormattedWithThreeFirsts &&
+            dataFormattedWithThreeFirsts.map((item, index) => (
               <TableRow key={index}>
                 <TableCell className="font-medium w-[20px] text-center">
                   {index + 1}
