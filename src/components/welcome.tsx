@@ -18,11 +18,12 @@ export function Welcome() {
           <SquarePen size={48} />
           Quiz - Elements
         </DialogTitle>
-        <DialogDescription className="text-center text-base">
-          Teste seus conhecimentos sobre cadeira e ganhe prêmios incríveis pela
-          participação!
-          <br />
-          Vamos lá?
+        <DialogDescription className="text-center text-base flex flex-col gap-4">
+          Teste seus conhecimentos sobre cadeira e ganhe um prêmio especial!
+          <span className="text-sm">
+            Obs: Você terá 1 minuto para responder o máximo de perguntas
+            possíveis.
+          </span>
         </DialogDescription>
       </DialogHeader>
       <DialogFooter className="sm:flex-col gap-4">

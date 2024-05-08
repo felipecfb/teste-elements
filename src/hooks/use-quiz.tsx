@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useReducer } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react'
 
 import { ReorderQuestions } from '@/utils/reorder-questions'
 import { sendDataToFakeDB } from '@/utils/send-data-to-fake-db'
@@ -19,6 +25,7 @@ type QuizActionType =
   | 'PREVIOUS_QUESTION'
   | 'CHECK_ANSWER'
   | 'FINISH_QUIZ'
+  | 'UPDATE_TIMER'
 
 interface QuizAction {
   type: QuizActionType
@@ -35,6 +42,7 @@ const initialState = {
   currentQuestion: 0,
   score: 0,
   answerSelected: false,
+  timer: 10,
 }
 
 interface QuizContextProps {
@@ -111,6 +119,12 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
       }
     }
 
+    case 'UPDATE_TIMER':
+      return {
+        ...state,
+        timer: state.timer - 1,
+      }
+
     case 'FINISH_QUIZ':
       return {
         ...initialState,
@@ -126,6 +140,20 @@ const QuizContext = createContext({} as QuizContextProps)
 
 function QuizProvider({ children }: QuizProviderProps) {
   const [state, dispatch] = useReducer(quizReducer, initialState)
+
+  useEffect(() => {
+    if (state.gameStage === STAGES[1]) {
+      const timer = setInterval(() => {
+        dispatch({ type: 'UPDATE_TIMER' })
+      }, 1000)
+
+      if (state.timer === 0) {
+        finishQuiz()
+      }
+
+      return () => clearInterval(timer)
+    }
+  }, [finishQuiz, state.gameStage, state.timer])
 
   const quizStart = state.gameStage === STAGES[1]
 

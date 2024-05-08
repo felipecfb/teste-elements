@@ -16,9 +16,13 @@ export function Question() {
   return (
     <>
       <DialogContent key={currentQuestion.question}>
-        <DialogHeader>
+        <DialogHeader className="flex flex-row items-center justify-between">
           <p className="text-2xl text-zinc-900 font-medium">
             Questão 0{quizState.currentQuestion + 1}
+          </p>
+
+          <p className="text-lg text-zinc-900 font-medium">
+            0:{quizState.timer < 10 ? `0${quizState.timer}` : quizState.timer}
           </p>
         </DialogHeader>
         <DialogDescription className="text-lg text-zinc-900 font-medium">
