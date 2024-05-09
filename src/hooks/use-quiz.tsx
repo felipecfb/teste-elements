@@ -10,7 +10,7 @@ import {
 import { ReorderQuestions } from '@/utils/reorder-questions'
 import { sendDataToFakeDB } from '@/utils/send-data-to-fake-db'
 
-import { data } from '@/data'
+import { questions } from '@/data/questions'
 
 interface QuizProviderProps {
   children: ReactNode
@@ -39,7 +39,7 @@ interface QuizAction {
 
 const initialState = {
   gameStage: STAGES[0],
-  questions: data,
+  questions,
   name: '',
   currentQuestion: 0,
   score: 0,
@@ -71,7 +71,7 @@ const quizReducer = (state: typeof initialState, action: QuizAction) => {
     case 'REORDER_QUESTIONS':
       return {
         ...state,
-        questions: ReorderQuestions(data),
+        questions: ReorderQuestions(questions),
       }
 
     case 'NEXT_QUESTION':

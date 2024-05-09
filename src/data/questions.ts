@@ -4,7 +4,7 @@ export interface DataProps {
   answer: string
 }
 
-export const data: DataProps[] = [
+export const questions: DataProps[] = [
   {
     question: 'Qual é uma característica importante de uma cadeira gamer?',
     options: [
