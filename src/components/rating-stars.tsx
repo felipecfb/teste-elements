@@ -14,7 +14,8 @@ export function RatingStars({ rating }: RatingStarsProps) {
         <Star
           key={index}
           size={20}
-          fill={index < roundedRating ? 'yellow' : '#111'}
+          fill={index < roundedRating ? 'yellow' : 'transparent'}
+          className="stroke-zinc-500"
         />
       ))}
     </div>
