@@ -2,8 +2,8 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
-import { Input } from './ui/input'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+import { Input } from '../ui/input'
 import { useQuiz } from '@/hooks/use-quiz'
 
 const profileSchema = z.object({

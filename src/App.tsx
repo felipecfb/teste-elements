@@ -6,7 +6,7 @@ import { queryClient } from './lib/react-query'
 
 import { Toaster } from './components/ui/toaster'
 import { Header } from './components/header'
-import { Quiz } from './components/quiz'
+import { Quiz } from './components/quiz/quiz'
 import { Products } from './components/products'
 
 export function App() {

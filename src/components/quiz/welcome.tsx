@@ -6,7 +6,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from './ui/dialog'
+} from '../ui/dialog'
 import { ProfileForm } from './profile-form'
 import { Ranking } from './ranking'
 
