@@ -1,5 +1,5 @@
 import { convertToBRL } from '@/utils/convertToBRL'
-import { Star } from 'lucide-react'
+import { RatingStars } from './rating-stars'
 
 interface ProductProps {
   title: string
@@ -31,13 +31,7 @@ export function ProductItem({
           <p className="text-lg font-bold">{convertToBRL(price)}</p>
           <div className="relative flex items-center gap-1">
             <p className="text-base font-bold text-zinc-900">{rating}</p>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <Star
-                key={index}
-                size={20}
-                fill={index + 1 < rating ? 'yellow' : '#111'}
-              />
-            ))}
+            <RatingStars rating={rating} />
           </div>
         </section>
       </div>

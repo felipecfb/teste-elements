@@ -8,18 +8,20 @@ import { Toaster } from './components/ui/toaster'
 import { Header } from './components/header'
 import { Quiz } from './components/quiz/quiz'
 import { Products } from './components/products'
+import { Filter } from './components/filter/filter'
 
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AppProvider>
         <Header />
-        <Quiz />
 
-        <div className="bg-zinc-600 p-8">
+        <div className="container py-8 space-y-4">
+          <Filter />
           <Products />
         </div>
 
+        <Quiz />
         <Toaster />
       </AppProvider>
     </QueryClientProvider>
