@@ -3,9 +3,9 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-} from '../ui/dialog'
+} from '../../../../components/ui/dialog'
 import { useQuiz } from '@/hooks/use-quiz'
-import { useToast } from '../ui/use-toast'
+import { useToast } from '../../../../components/ui/use-toast'
 import { Ranking } from './ranking'
 
 export function GameOver() {

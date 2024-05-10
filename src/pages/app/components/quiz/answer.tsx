@@ -1,5 +1,5 @@
-import { Label } from './ui/label'
-import { RadioGroupItem } from './ui/radio-group'
+import { Label } from '../../../../components/ui/label'
+import { RadioGroupItem } from '../../../../components/ui/radio-group'
 
 interface QuestionItemProps {
   option: string

@@ -1,10 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
 import { SlidersHorizontal, X } from 'lucide-react'
-
-import { removeDuplicates } from '@/utils/remove-duplicates'
-
-import { FilterPrice } from './filter-price'
-import { FilterCategory } from './filter-category'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -19,27 +13,13 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { FilterRating } from './filter-rating'
-import { getProducts } from '@/api/get-products'
-import { FilterWrapper } from './filter-wrapper'
+import { FilterForm } from './filter-form'
 
-export function Filter() {
-  const { data: productsData } = useQuery({
-    queryFn: getProducts,
-    queryKey: ['products'],
-  })
-
-  const categories = removeDuplicates(
-    productsData?.map((product) => product.category),
-  )
-
-  const prices = removeDuplicates(productsData?.map((product) => product.price))
-
+export function FilterHeader() {
   return (
     <div className="flex items-center justify-between">
       <Sheet>
@@ -60,23 +40,7 @@ export function Filter() {
             </SheetClose>
           </SheetHeader>
 
-          <div className="h-full">
-            <FilterWrapper>
-              <FilterCategory categories={categories} />
-            </FilterWrapper>
-
-            <FilterWrapper>
-              <FilterPrice prices={prices} />
-            </FilterWrapper>
-
-            <FilterWrapper>
-              <FilterRating />
-            </FilterWrapper>
-          </div>
-
-          <SheetFooter>
-            <Button className="w-full">Aplicar filtros</Button>
-          </SheetFooter>
+          <FilterForm />
         </SheetContent>
       </Sheet>
 

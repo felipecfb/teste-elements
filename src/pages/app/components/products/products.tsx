@@ -1,10 +1,18 @@
 import { getProducts } from '@/api/get-products'
 import { useQuery } from '@tanstack/react-query'
 import { ProductItem } from './product-item'
+import { useSearchParams } from 'react-router-dom'
 
 export function Products() {
+  const [searchParams, _] = useSearchParams()
+
+  const categoriesFromSearchParams = searchParams.get('categories')?.split(',')
+
   const { data: productsData } = useQuery({
-    queryFn: getProducts,
+    queryFn: () =>
+      getProducts({
+        categories: categoriesFromSearchParams,
+      }),
     queryKey: ['products'],
   })
 

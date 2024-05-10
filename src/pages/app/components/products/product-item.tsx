@@ -1,5 +1,5 @@
 import { convertToBRL } from '@/utils/convertToBRL'
-import { RatingStars } from './rating-stars'
+import { RatingStars } from '../../../../components/rating-stars'
 
 interface ProductProps {
   title: string
