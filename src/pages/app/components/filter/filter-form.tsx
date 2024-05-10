@@ -1,24 +1,27 @@
+import { useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'react-router-dom'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+
+import { getProducts } from '@/api/get-products'
+
+import { removeDuplicates } from '@/utils/remove-duplicates'
+import { FormProvider, useForm } from 'react-hook-form'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../../../../components/ui/accordion'
-import { Checkbox } from '../../../../components/ui/checkbox'
-import { Button } from '../../../../components/ui/button'
-import { useQuery } from '@tanstack/react-query'
-import { getProducts } from '@/api/get-products'
-import { removeDuplicates } from '@/utils/remove-duplicates'
-import { useSearchParams } from 'react-router-dom'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, useForm } from 'react-hook-form'
+} from '@/components/ui/accordion'
+import { SheetClose } from '@/components/ui/sheet'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@/components/ui/button'
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from '../../../../components/ui/form'
+} from '@/components/ui/form'
 
 const filterCategorySchema = z.object({
   categories: z
@@ -52,35 +55,44 @@ export function FilterForm() {
         state.delete('categories')
       }
 
-      // if (minPrice) {
-      //   setPriceFilter(parseInt(minPrice))
-
-      //   state.set('minPrice', minPrice)
-      // } else {
-      //   state.delete('minPrice')
-      // }
-
-      // if (maxRating) {
-      //   state.set('maxRating', maxRating)
-      // } else {
-      //   state.delete('maxRating')
-      // }
-
       return state
     })
   }
 
-  const { data: productsData } = useQuery({
-    queryFn: () => getProducts({ categories: null }),
-    queryKey: ['products'],
+  const { data: result } = useQuery({
+    queryKey: ['products-category'],
+    queryFn: () => getProducts({ categories: '' }),
   })
 
   const categories = removeDuplicates(
-    productsData?.map((product) => product.category),
+    result?.map((product) => product.category),
   )
+
+  function handleClearFilters() {
+    setSearchParams((state) => {
+      state.delete('categories')
+
+      return state
+    })
+
+    form.reset({
+      categories: [],
+    })
+  }
 
   return (
     <FormProvider {...form}>
+      <div className="flex justify-between items-center">
+        <SheetClose asChild>
+          <Button
+            variant="ghost"
+            className="text-zinc-900 font-medium"
+            onClick={handleClearFilters}
+          >
+            Limpar filtros
+          </Button>
+        </SheetClose>
+      </div>
       <form
         action=""
         onSubmit={form.handleSubmit(handleFilter)}
@@ -158,9 +170,11 @@ export function FilterForm() {
         </FilterWrapper> */}
         </div>
 
-        <Button type="submit" className="w-full">
-          Aplicar filtros
-        </Button>
+        <SheetClose asChild>
+          <Button type="submit" className="w-full">
+            Aplicar filtros
+          </Button>
+        </SheetClose>
       </form>
     </FormProvider>
   )

@@ -3,7 +3,7 @@
   "products": [
     {
       "id": 1,
-      "title": "Mochila Fjallraven - Foldsack No. 1, Para Laptops de 15 polegadas",
+      "title": "Mochila Fjallraven - Foldsack No. 1, Para Laptops de até 15 Polegadas",
       "price": 109.95,
       "category": "roupas masculinas",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "title": "Camisetas Casuais Premium Slim Fit Masculinas",
+      "title": "Camisetas Casuais Premium Slim Fit para Homens",
       "price": 22.3,
       "category": "roupas masculinas",
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -19,7 +19,7 @@
     },
     {
       "id": 3,
-      "title": "Jaqueta Masculina de Algodão",
+      "title": "Jaqueta de Algodão para Homens",
       "price": 55.99,
       "category": "roupas masculinas",
       "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
@@ -27,7 +27,7 @@
     },
     {
       "id": 4,
-      "title": "Camiseta Casual Slim Fit Masculina",
+      "title": "Camiseta Casual Slim Fit para Homens",
       "price": 15.99,
       "category": "roupas masculinas",
       "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
@@ -35,7 +35,7 @@
     },
     {
       "id": 5,
-      "title": "Bracelete de Corrente de Ouro e Prata de Dragão Legends Naga para Mulheres John Hardy",
+      "title": "Pulseira Chain de Dragão de Ouro e Prata para Mulheres John Hardy Legends Naga",
       "price": 695,
       "category": "joias",
       "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
@@ -43,7 +43,7 @@
     },
     {
       "id": 6,
-      "title": "Micro pavê Petite em Ouro Maciço",
+      "title": "Brinco Micropavê de Ouro Maciço para Mulheres",
       "price": 168,
       "category": "joias",
       "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
@@ -51,7 +51,7 @@
     },
     {
       "id": 7,
-      "title": "Anel de Compromisso Solitário de Diamante Criado em Ouro Branco",
+      "title": "Anel de Promessa de Diamante Solitário Princess de Ouro Branco para Mulheres",
       "price": 9.99,
       "category": "joias",
       "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
@@ -59,7 +59,7 @@
     },
     {
       "id": 8,
-      "title": "Brincos de Túnel de Flare Duplo em Aço Inoxidável Folheado a Ouro Rosa",
+      "title": "Brinco de Túnel Duplo de Aço Inoxidável com Banho de Ouro Rosa Pierced Owl",
       "price": 10.99,
       "category": "joias",
       "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
@@ -67,7 +67,7 @@
     },
     {
       "id": 9,
-      "title": "HD Externo Portátil WD 2TB Elements - USB 3.0",
+      "title": "HD Externo Portátil WD Elements 2TB - USB 3.0",
       "price": 64,
       "category": "eletrônicos",
       "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
@@ -83,7 +83,7 @@
     },
     {
       "id": 11,
-      "title": "SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5 de 256GB",
+      "title": "SSD 256GB 3D NAND A55 SLC Cache Silicon Power - SATA III 2.5",
       "price": 109,
       "category": "eletrônicos",
       "image": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
@@ -91,7 +91,7 @@
     },
     {
       "id": 12,
-      "title": "HD Externo para Jogos WD 4TB - Funciona com Playstation 4",
+      "title": "HD Externo Portátil WD Gaming Drive 4TB para Playstation 4",
       "price": 114,
       "category": "eletrônicos",
       "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
@@ -99,7 +99,7 @@
     },
     {
       "id": 13,
-      "title": "Monitor de Jogos Curvo Samsung CHG90 144Hz de 49 polegadas",
+      "title": "Monitor de Jogos Curvo Samsung CHG90 144Hz 49 polegadas",
       "price": 999.99,
       "category": "eletrônicos",
       "image": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
@@ -107,7 +107,7 @@
     },
     {
       "id": 14,
-      "title": "Jaqueta de Snowboard 3 em 1 para Mulheres",
+      "title": "Casaco de Snowboard 3 em 1 para Mulheres BIYLACLESEN",
       "price": 56.99,
       "category": "roupas femininas",
       "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
@@ -115,7 +115,7 @@
     },
     {
       "id": 15,
-      "title": "Jaqueta Motoqueira Feminina de Couro Sintético com Capuz Removível",
+      "title": "Jaqueta Moto Biker de Couro Falso com Capuz Removível Lock and Love para Mulheres",
       "price": 29.95,
       "category": "roupas femininas",
       "image": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
@@ -123,11 +123,35 @@
     },
     {
       "id": 16,
-      "title": "Capa de Chuva Feminina Listrada para Escalada",
+      "title": "Capa de Chuva Escalada para Mulheres Rain Jacket",
       "price": 39.99,
       "category": "roupas femininas",
       "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
       "rating": 3.8
+    },
+    {
+      "id": 17,
+      "title": "Camiseta de Manga Curta MBJ Boat Neck para Mulheres",
+      "price": 9.85,
+      "category": "roupas femininas",
+      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+      "rating": 4.7
+    },
+    {
+      "id": 18,
+      "title": "Camiseta de Manga Curta Opna para Mulheres",
+      "price": 7.95,
+      "category": "roupas femininas",
+      "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+      "rating": 4.5
+    },
+    {
+      "id": 19,
+      "title": "Camiseta Casual de Algodão para Mulheres DANVOUY",
+      "price": 12.99,
+      "category": "roupas femininas",
+      "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+      "rating": 3.6
     }
   ]
 }
