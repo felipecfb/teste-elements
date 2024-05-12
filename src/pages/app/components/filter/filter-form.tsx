@@ -106,19 +106,21 @@ export function FilterForm() {
 
   return (
     <FormProvider {...form}>
-      <div className="flex justify-between items-center">
-        <SheetClose asChild>
-          <Button
-            variant="ghost"
-            className="text-zinc-900 font-medium"
-            onClick={handleClearFilters}
-          >
-            Limpar filtros
-          </Button>
-        </SheetClose>
-      </div>
+      <SheetClose asChild>
+        <Button
+          variant="ghost"
+          className="text-zinc-900 font-medium"
+          onClick={handleClearFilters}
+        >
+          Limpar filtros
+        </Button>
+      </SheetClose>
       <Form {...form}>
-        <form action="" onSubmit={form.handleSubmit(handleFilter)}>
+        <form
+          action=""
+          onSubmit={form.handleSubmit(handleFilter)}
+          className="flex-1 flex flex-col justify-between"
+        >
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger>Categorias</AccordionTrigger>
