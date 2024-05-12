@@ -2,26 +2,33 @@ import { getProducts } from '@/api/get-products'
 import { useQuery } from '@tanstack/react-query'
 import { ProductItem } from './product-item'
 import { useSearchParams } from 'react-router-dom'
+import { ProductsEmpty } from './products-empty'
 
 export function Products() {
   const [searchParams, _] = useSearchParams()
 
-  const categories = searchParams.get('categories') ?? ''
+  const category = searchParams.get('category') ?? ''
+  const minPrice = searchParams.get('minPrice') ?? ''
+  const rating = searchParams.get('rating') ?? ''
 
   const { data: result } = useQuery({
-    queryKey: ['products', categories],
-    queryFn: () => getProducts({ categories }),
+    queryKey: ['products', category, minPrice, rating],
+    queryFn: () => getProducts({ category, minPrice, rating }),
   })
 
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      {result && (
-        <>
-          {result.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
-        </>
+    <>
+      {result?.length === 0 ? (
+        <ProductsEmpty />
+      ) : (
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <>
+            {result?.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </>
+        </div>
       )}
-    </div>
+    </>
   )
 }

@@ -1,7 +1,9 @@
 import { api } from '@/lib/axios'
 
 interface GetProductsQuery {
-  categories: string
+  category: string
+  minPrice: string
+  rating: string
 }
 
 export type GetProductsResponse = {
@@ -13,16 +15,18 @@ export type GetProductsResponse = {
   rating: number
 }[]
 
-export async function getProducts({ categories }: GetProductsQuery) {
-  const response = await api.get<GetProductsResponse>('/products')
-
-  if (categories) {
-    const filteredProducts = response.data.filter((product) => {
-      return categories.split(',').includes(product.category)
-    })
-
-    return filteredProducts
-  }
+export async function getProducts({
+  category,
+  minPrice,
+  rating,
+}: GetProductsQuery) {
+  const response = await api.get<GetProductsResponse>('/products', {
+    params: {
+      category: category === 'all' ? undefined : category,
+      price_gt: minPrice ?? undefined,
+      rating_lte: rating ?? undefined,
+    },
+  })
 
   return response.data
 }
