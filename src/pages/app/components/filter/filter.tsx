@@ -2,14 +2,6 @@ import { SlidersHorizontal, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import {
   Sheet,
   SheetClose,
   SheetContent,
@@ -18,8 +10,9 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { FilterForm } from './filter-form'
+import { Sort } from './sort'
 
-export function FilterHeader() {
+export function Filter() {
   return (
     <div className="flex items-center justify-between">
       <Sheet>
@@ -46,27 +39,7 @@ export function FilterHeader() {
 
       <div className="flex items-center gap-2">
         <p className="text-sm text-zinc-900 font-medium">Ordenar por:</p>
-        <Select defaultValue="alphabetical-az">
-          <SelectTrigger className="w-[180px]">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectItem value="alphabetical-az">
-                Ordem alfabética, A-Z
-              </SelectItem>
-              <SelectItem value="alphabetical-za">
-                Ordem alfabética, Z-A
-              </SelectItem>
-              <SelectItem value="price-ascending">
-                Preço, ordem crescente
-              </SelectItem>
-              <SelectItem value="price-descending">
-                Preço, ordem decrescente
-              </SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <Sort />
       </div>
     </div>
   )

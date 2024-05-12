@@ -1,4 +1,4 @@
-import { getProducts } from '@/api/get-products'
+import { OrderBy, getProducts } from '@/api/get-products'
 import { useQuery } from '@tanstack/react-query'
 import { ProductItem } from './product-item'
 import { useSearchParams } from 'react-router-dom'
@@ -10,10 +10,12 @@ export function Products() {
   const category = searchParams.get('category') ?? ''
   const minPrice = searchParams.get('minPrice') ?? ''
   const rating = searchParams.get('rating') ?? ''
+  const orderByType =
+    (searchParams.get('orderBy') as OrderBy | undefined) ?? 'alphabetical-az'
 
   const { data: result } = useQuery({
-    queryKey: ['products', category, minPrice, rating],
-    queryFn: () => getProducts({ category, minPrice, rating }),
+    queryKey: ['products', category, minPrice, rating, orderByType],
+    queryFn: () => getProducts({ category, minPrice, rating, orderByType }),
   })
 
   return (

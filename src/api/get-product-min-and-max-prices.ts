@@ -12,7 +12,5 @@ export async function getProductMinAndMaxPrices(): Promise<GetProductMinAndMaxPr
   const minPrice = Math.min(...data.map((product) => product.price))
   const maxPrice = Math.max(...data.map((product) => product.price))
 
-  console.log(minPrice, maxPrice)
-
   return { minPrice, maxPrice }
 }
