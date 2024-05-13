@@ -14,7 +14,7 @@ import { Sort } from './sort'
 
 export function Filter() {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-center md:justify-between">
       <Sheet>
         <SheetTrigger asChild>
           <Button
@@ -37,7 +37,7 @@ export function Filter() {
         </SheetContent>
       </Sheet>
 
-      <div className="flex items-center gap-2">
+      <div className="items-center gap-2 hidden md:flex">
         <p className="text-sm text-zinc-900 font-medium">Ordenar por:</p>
         <Sort />
       </div>

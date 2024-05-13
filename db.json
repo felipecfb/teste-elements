@@ -152,6 +152,174 @@
       "category": "roupas femininas",
       "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
       "rating": 3.6
+    },
+    {
+      "id": 20,
+      "title": "Relógio Inteligente Fitness Tracker com Monitor de Frequência Cardíaca",
+      "price": 79.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 4.2
+    },
+    {
+      "id": 21,
+      "title": "Smartphone Samsung Galaxy S22 Ultra 5G",
+      "price": 1599.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
+      "rating": 4.8
+    },
+    {
+      "id": 22,
+      "title": "Notebook Dell XPS 15",
+      "price": 1899.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": 4.9
+    },
+    {
+      "id": 23,
+      "title": "Teclado Mecânico Gamer RGB",
+      "price": 99.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+      "rating": 4.5
+    },
+    {
+      "id": 24,
+      "title": "Câmera DSLR Canon EOS 90D",
+      "price": 1499.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 1
+    },
+    {
+      "id": 25,
+      "title": "Tênis Nike Air Max 270",
+      "price": 129.99,
+      "category": "calçados",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 5
+    },
+    {
+      "id": 26,
+      "title": "Camiseta Polo Lacoste",
+      "price": 79.99,
+      "category": "roupas masculinas",
+      "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
+      "rating": 4.2
+    },
+    {
+      "id": 27,
+      "title": "Bolsa de Couro Feminina",
+      "price": 149.99,
+      "category": "acessórios",
+      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+      "rating": 4.9
+    },
+    {
+      "id": 28,
+      "title": "Livro de Ficção Científica Bestseller",
+      "price": 19.99,
+      "category": "livros",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 2
+    },
+    {
+      "id": 29,
+      "title": "Fones de Ouvido Bluetooth Sony",
+      "price": 99.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 4.5
+    },
+    {
+      "id": 30,
+      "title": "Smartwatch Apple Watch Series 7",
+      "price": 399.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
+      "rating": 4.8
+    },
+    {
+      "id": 31,
+      "title": "Óculos de Sol Ray-Ban Aviador",
+      "price": 129.99,
+      "category": "acessórios",
+      "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+      "rating": 4.7
+    },
+    {
+      "id": 32,
+      "title": "Chapéu de Palha para Praia",
+      "price": 29.99,
+      "category": "acessórios",
+      "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+      "rating": 4.2
+    },
+    {
+      "id": 33,
+      "title": "Câmera de Segurança Wireless",
+      "price": 59.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 3
+    },
+    {
+      "id": 34,
+      "title": "Mochila Escolar Infantil",
+      "price": 24.99,
+      "category": "acessórios",
+      "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
+      "rating": 4.6
+    },
+    {
+      "id": 35,
+      "title": "Ferro de Passar Roupa Philips",
+      "price": 39.99,
+      "category": "eletrodomésticos",
+      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+      "rating": 4.3
+    },
+    {
+      "id": 36,
+      "title": "Bateria Externa Power Bank 10000mAh",
+      "price": 29.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 4.5
+    },
+    {
+      "id": 37,
+      "title": "Cadeira de Escritório Ergonômica",
+      "price": 199.99,
+      "category": "móveis",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 4
+    },
+    {
+      "id": 38,
+      "title": "Notebook Lenovo Yoga 9i",
+      "price": 1799.99,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
+      "rating": 4.9
+    },
+    {
+      "id": 39,
+      "title": "Cadeira Gamer",
+      "price": 450.99,
+      "category": "móveis",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+      "rating": 3.5
+    },
+    {
+      "id": 40,
+      "title": "Notebook Dell Inspiron 15",
+      "price": 2200.98,
+      "category": "eletrônicos",
+      "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
+      "rating": 4.9
     }
   ]
 }

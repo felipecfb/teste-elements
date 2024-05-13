@@ -27,6 +27,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { RatingStars } from '@/components/rating-stars'
+import { Sort } from './sort'
 
 const filterCategorySchema = z.object({
   category: z.string().optional(),
@@ -229,7 +230,14 @@ export function FilterForm() {
                 />
               </AccordionContent>
             </AccordionItem>
+            <AccordionItem value="item-4" className="md:hidden">
+              <AccordionTrigger>Ordernar por</AccordionTrigger>
+              <AccordionContent className="space-y-2 flex flex-col">
+                <Sort />
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
+
           <SheetClose asChild>
             <Button type="submit" className="w-full">
               Aplicar filtros
