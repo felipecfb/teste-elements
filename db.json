@@ -1,5 +1,11 @@
 {
-  "ranking": [],
+  "ranking": [
+    {
+      "id": "d96b",
+      "name": "Smithson do Brasil",
+      "score": 2
+    }
+  ],
   "products": [
     {
       "id": 1,

@@ -12,7 +12,7 @@ import { Ranking } from './ranking'
 
 export function Welcome() {
   return (
-    <DialogContent>
+    <>
       <DialogHeader className="space-y-6">
         <DialogTitle className="flex flex-col items-center gap-2 text-2xl text-zinc-900">
           <SquarePen size={48} />
@@ -30,6 +30,6 @@ export function Welcome() {
 
         <Ranking />
       </DialogFooter>
-    </DialogContent>
+    </>
   )
 }

@@ -34,7 +34,7 @@ export function GameOver() {
   }
 
   return (
-    <DialogContent>
+    <>
       <DialogHeader>
         <p className="text-2xl text-zinc-900 font-medium text-center">
           Fim de jogo
@@ -70,6 +70,6 @@ export function GameOver() {
           Voltar ao início
         </button>
       </DialogFooter>
-    </DialogContent>
+    </>
   )
 }
