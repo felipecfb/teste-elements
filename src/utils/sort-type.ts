@@ -28,7 +28,5 @@ export function SortType({ type }: SortTypesProps): SortTypesResponse {
       break
   }
 
-  console.log(orderBy)
-
   return { orderBy }
 }
